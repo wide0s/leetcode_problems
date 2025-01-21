@@ -21,4 +21,8 @@ class Solution(object):
             digits = [1] + digits
         return digits
 
-Solution().plusOne([9])
+for i in range(9):
+    assert Solution().plusOne([i]) == [i + 1]
+assert Solution().plusOne([9]) == [1, 0]
+assert Solution().plusOne([1, 9]) == [2, 0]
+assert Solution().plusOne([9, 9]) == [1, 0, 0]

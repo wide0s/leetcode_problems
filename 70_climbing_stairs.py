@@ -1,26 +1,19 @@
-class Solution2(object):
-    def climbStairs(self, n):
-        if n == 1:
-            return 1
-        fib = [1, 2]
-        for i in range(2, n):
-            reg = fib[-1]
-            fib[-1] += fib[-2]
-            fib[-2] = reg
-        return fib[-1]
-
-
 class Solution(object):
     def climbStairs(self, n):
         """
         :type n: int
         :rtype: int
         """
-        def calc(n, w = 0):
-            if n > 1:
-                return calc(n - 1, w) + calc(n - 2, w)
-            return w + 1
-        return calc(n)
+        if n == 1:
+            return 1
+        fibonachi = [1, 2]
+        for i in range(2, n):
+            reg = fibonachi[-1]
+            fibonachi[-1] += fibonachi[-2]
+            fibonachi[-2] = reg
+        return fibonachi[-1]
 
 for i in range(45):
-    print(f'{i + 1} {Solution2().climbStairs(i + 1)}')
+    print(f'{i + 1} {Solution().climbStairs(i + 1)}')
+    if i + 1 < 4:
+         assert Solution().climbStairs(i + 1) == i + 1

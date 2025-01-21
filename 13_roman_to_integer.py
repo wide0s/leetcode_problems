@@ -31,7 +31,6 @@
 
 
 class Solution(object):
-    mm = None
     def intToRoman(self, number):
         num = [1,    4,    5,   9,   10,   40,  50,  90,  100,  400,  500, 900, 1000]
         sym = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"]
@@ -45,14 +44,6 @@ class Solution(object):
                 div -= 1
             i -= 1
         return roman
-
-    def romanToIntStatic(self, s):
-        if Solution.mm == None:
-            Solution.mm = {}
-            for i in range(1, 4000):
-                Solution.mm[self.intToRoman(i)] = i
-        return Solution.mm[s]
-
 
     def romanToInt(self, s):
         """
@@ -91,14 +82,5 @@ class Solution(object):
 
 for d in range(1, 4000):
     roman = Solution().intToRoman(d)
-    arabic = Solution().romanToIntStatic(roman)
-    if d != arabic:
-        print(f"{roman} is {d} != {arabic}")
-        break
-    #print(f"{roman} is {d} == {arabic}")
-
-
-assert Solution().intToRoman(3) == 'III'
-assert Solution().intToRoman(58) == 'LVIII'
-assert Solution().intToRoman(1994) == 'MCMXCIV'
-assert Solution().intToRoman(529) == 'DXXIX'
+    arabic = Solution().romanToInt(roman)
+    assert d == arabic

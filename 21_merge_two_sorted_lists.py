@@ -13,7 +13,7 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
         if not list1:
-            return list
+            return list2
         if not list2:
             return list1
         left, right = (list2, list1) if list2.val < list1.val else (list1, list2)

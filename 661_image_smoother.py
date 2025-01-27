@@ -5,8 +5,7 @@ class Solution(object):
         :type img: List[List[int]]
         :rtype: List[List[int]]
         """
-        def smooth(img, i, j):
-            n, m = len(img), len(img[0])
+        def smooth(img, i, j, n, m):
             # [i-1, j-1] [i-1, j] [i-1, j+1]
             # [i  , j-1] [  i, j] [  i, j+1]
             # [i+1, j-1] [i+1, j] [i+1, j+1]
@@ -22,13 +21,12 @@ class Solution(object):
         smoothed = [ [0] * m for _ in range(n) ]
         for i in range(n):
            for j in range(m):
-               smoothed[i][j] = smooth(img, i, j)
+               smoothed[i][j] = smooth(img, i, j, n, m)
         return smoothed
 
-    # runtime O(n x m) (beats ~21%), memory O(1) (beats ~88%)
+    # runtime O(n x m) (beats ~28%), memory O(1) (beats ~81%)
     def imageSmoother(self, img):
-        def smooth(img, i, j):
-            n, m = len(img), len(img[0])
+        def smooth(img, i, j, n, m):
             # [i-1, j-1] [i-1, j] [i-1, j+1]
             # [i  , j-1] [  i, j] [  i, j+1]
             # [i+1, j-1] [i+1, j] [i+1, j+1]
@@ -52,7 +50,7 @@ class Solution(object):
         n, m = len(img), len(img[0])
         for i in range(n):
            for j in range(m):
-               smooth(img, i, j)
+               smooth(img, i, j, n, m)
         return img
 
 vectors = [
@@ -62,6 +60,15 @@ vectors = [
         [[1]], [[1]]
 ]
 
+print('Evaluating imageSmoother2()')
+for i in range(0, len(vectors), 2):
+    source = vectors[i]
+    expected = vectors[i + 1]
+    print(source)
+    smoothed = Solution().imageSmoother2(source)
+    assert smoothed == expected, f'expected {expected}, returned {smoothed}'
+
+print('Evaluating imageSmoother()')
 for i in range(0, len(vectors), 2):
     source = vectors[i]
     expected = vectors[i + 1]

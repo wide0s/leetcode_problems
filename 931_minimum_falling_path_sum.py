@@ -1,3 +1,4 @@
+# this is the solution from https://www.youtube.com/watch?v=b_F3mz9l-uQ
 class Solution(object):
     def minFallingPathSum(self, matrix):
         """
@@ -5,7 +6,6 @@ class Solution(object):
         :rtype: int
         """
         n = len(matrix)
-
         # runtime complexity O(n^2), memory complexity O(1)
         for r in range(1, n):
             for c in range(n):

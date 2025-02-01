@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: int
         """
         # too slow for leetcode :(
-        def erathosthenes(n):
+        def erathosthenesSlow(n):
             sieve = [True] * n
             primes = []
             for p in range(2, n):
@@ -16,10 +16,10 @@ class Solution(object):
                         sieve[i] = False
             return primes
 
-        def erathosthenes2(n):
+        def erathosthenes(n):
             prime = [True for i in range(n + 1)]
             p = 2
-            while (p * p < n): #<= n):
+            while (p * p < n):
                 if prime[p] == True:
                     for i in range(p * p, n + 1, p):
                         prime[i] = False
@@ -30,7 +30,7 @@ class Solution(object):
                     count += 1
             return count
 
-        return erathosthenes2(n)
+        return erathosthenes(n)
 
 vectors = [
         35, 11,
@@ -38,7 +38,7 @@ vectors = [
         10, 4,
         0, 0,
         1, 0,
-        2, 9
+        2, 0
         ]
 
 for i in range(0, len(vectors), 2):

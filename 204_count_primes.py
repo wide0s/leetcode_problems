@@ -38,9 +38,14 @@ vectors = [
         10, 4,
         0, 0,
         1, 0,
-        2, 0
+        2, 0,
+        2000, 303,
+        20000, 2262,
+        200000, 17984,
+        2000000, 148933,
+        20000000, 1270607
         ]
 
 for i in range(0, len(vectors), 2):
     result = Solution().countPrimes(vectors[i])
-    assert result == vectors[i + 1], f'there are {vectors[i+1]} primes less than {vectors[i]}, but returnes {result}!'
+    assert result == vectors[i + 1], f'there are {vectors[i+1]} primes less than {vectors[i]}, but returned {result}!'

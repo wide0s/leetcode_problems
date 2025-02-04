@@ -13,6 +13,12 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
+        # Let n be a strictly palindromic number for any
+        # natural base b \in [2,n−2], then writing it for
+        # the base n−2, we obtain the expression 
+        # 1∗(n−2)^1 + 2∗(n−2)^0 or 12 (base n-2), which
+        # is clearly not a palindromic number for any
+        # base n−2.
         return False
 
 vectors = [

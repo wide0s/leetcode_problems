@@ -1,4 +1,4 @@
-from algorithms import bisection, gcd, prod
+from algorithms import bisection, gcd, prod, perfect
 
 # bisection
 for i in range(20):
@@ -23,6 +23,22 @@ for i in range(0, len(vectors), 5):
     expected = vectors[i + 4]
     returned = bisection(a, target, left, right)
     assert returned == expected, f'for {a} and target {target} in boundaries [{left},{right}] expected index {expected}, returned {returned}!'
+
+# perfect
+vectors = [0, 1, 1, 1, 2, 2, 2, 2, 2, 3,
+           3, 3, 3, 3, 3, 3, 4, 4, 4, 4,
+           4, 4, 4, 4, 4, 5, 5, 5, 5, 5,
+           5, 5, 5, 5, 5, 5, 6, 6, 6, 6,
+           6, 6, 6, 6, 6, 6, 6, 6, 6, 7,
+           7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+           7, 7, 7, 7, 8, 8, 8, 8, 8, 8,
+           8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+           8, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+           9, 9, 9, 9, 9, 9, 9, 9, 9, 9 ]
+for i in range(len(vectors)):
+    expected = vectors[i]
+    returned = perfect(i)
+    assert expected == returned, f'nearest smallest perfect square for {i} is {expected}, but returned {returned}!'
 
 # prod
 vectors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]

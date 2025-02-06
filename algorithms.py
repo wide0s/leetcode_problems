@@ -15,6 +15,20 @@ def bisection(a, target, left=0, right=None):
             return mid
     return -1
 
+# Time complexity: O(log(x))
+# calculates nearest smaller perfect square
+def perfect_square(x):
+    lo, hi = 0, int(x)
+    while lo < hi:
+        mid = (hi + lo) // 2
+        if mid * mid < x:
+            lo = mid + 1
+        else:
+            hi = mid
+    if lo * lo > x:
+        lo = lo - 1
+    return lo
+
 # https://www.geeksforgeeks.org/program-to-find-gcd-or-hcf-of-two-numbers/
 # Time complexity: O(log(min(a, b)))
 # Space complexity: O(1)

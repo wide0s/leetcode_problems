@@ -1,3 +1,4 @@
+# Ref: https://github.com/python/cpython/blob/main/Lib/bisect.py
 # Time complixity: O(log(len(a))
 # Space complexity: O(1)
 def bisection(a, target, left=0, right=None):
@@ -16,6 +17,7 @@ def bisection(a, target, left=0, right=None):
     return -1
 
 # Time complexity: O(log(x))
+# Space complexity: O(1)
 def perfect(x):
     """
     Calculates the nearest perfect square less or equal than x.
@@ -34,7 +36,7 @@ def perfect(x):
         lo = lo - 1
     return lo
 
-# https://www.geeksforgeeks.org/program-to-find-gcd-or-hcf-of-two-numbers/
+# Ref: https://www.geeksforgeeks.org/program-to-find-gcd-or-hcf-of-two-numbers/
 # Time complexity: O(log(min(a, b)))
 # Space complexity: O(1)
 def gcd(a, b):
@@ -53,7 +55,8 @@ def gcd(a, b):
         return b
     return a
 
-# Time complexity O(N)
+# Time complexity: O(N)
+# Space complexity: O(1)
 def prod(a):
     """
     Calculates the product of an array of integers.
@@ -66,3 +69,24 @@ def prod(a):
             return 0
         v *= e
     return v
+
+# Ref: https://aggregate.org/MAGIC/#Population%20Count%20(Ones%20Count)
+# Time complexity: O(1)
+# Space complexity: O(1)
+def popcount(n):
+    """
+    Calculates the number of one bits in the value.
+    It uses a variable-precision SWAR algorithm to
+    perform a tree reduction adding the bits in a
+    32-bit value
+    type: 32 bits unsigned int
+    rtype: number of one bits
+    """
+    # 32-bit recursive reduction using SWAR...
+    # but first step is mapping 2-bit values
+    # into sum of 2 1-bit values in sneaky way
+    n = n - ((n >> 1) & 0x55555555)
+    n = (((n >> 2) & 0x33333333) + (n & 0x33333333))
+    n = (((n >> 4) + n) & 0x0f0f0f0f)
+    n += (n >> 8) + (n >> 16)
+    return n & 0x0000003f

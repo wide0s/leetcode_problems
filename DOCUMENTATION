@@ -1,2 +1,6 @@
 Division by modulo. https://ru.algorithmica.org/cs/modular/reciprocal/
 Permutation with repetition. https://www.yaklass.ru/p/algebra/11-klass/nachalnye-svedeniia-kombinatoriki-9340/perestanovki-perestanovki-c-povtoreniiami-9343/re-fae87374-b861-453a-ac7e-7e29e05d40e1
+Bits count:
+ - https://aggregate.org/MAGIC/
+ - https://topic.alibabacloud.com/a/redis-bitcount-variable-precision-swar-algorithm_1_47_30320831.html
+ - https://stackoverflow.com/questions/109023/count-the-number-of-set-bits-in-a-32-bit-integer

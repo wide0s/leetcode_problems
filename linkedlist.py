@@ -41,3 +41,23 @@ def printnodes(head):
         print(node.val, end='>' if node.next == None else ', ')
         node = node.next
     print('')
+
+# It's called Node in https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/
+class TriNode(object):
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child
+
+def trinodes(iterable):
+    assert iterable != None or len(iterable) > 0
+    head = TriNode(iterable[0], None, None, None)
+    if len(iterable) == 1:
+        return head
+    node = head
+    for value in iterable[1:]:
+        node.next = TriNode(value, node, None, None)
+        node = node.next
+    assert node.next == None
+    return head

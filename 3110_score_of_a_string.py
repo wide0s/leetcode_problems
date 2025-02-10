@@ -27,6 +27,7 @@ vectors = [
 
 for i in range(0, len(vectors), 2):
     s = vectors[i]
+    print(f'{s}')
     expected = vectors[i+1]
     returned = Solution().scoreOfString(s)
     assert expected == returned, f'for \'{s}\' expected {expected}, but returned {returned}!'

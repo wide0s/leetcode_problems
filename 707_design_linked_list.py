@@ -68,14 +68,12 @@ class MyLinkedList(object):
         :rtype: None
         """
         if self.head is None:
-            self.head = MyNode(val)
-            self.head.next = self.head
-            self.head.prev = self.head
+            self.addAtHead(val)
         else:
             node = MyNode(val, self.head, self.head.prev)
             self.head.prev.next = node
             self.head.prev = node
-        self.n += 1
+            self.n += 1
 
     def addAtIndex(self, index, val):
         """

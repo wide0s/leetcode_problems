@@ -1,3 +1,5 @@
 47. Permutations II: https://leetcode.com/problems/permutations-ii/description/
  implement a smarter approach
  47_permutations_ii.py
+
+Study KMP algorithm and check implementation. Maybe there is a room for optimization.

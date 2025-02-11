@@ -1,4 +1,4 @@
-from algorithms import bisection, gcd, prod, perfect
+from algorithms import bisection, gcd, prod, perfect, KMP_matcher
 
 # bisection
 for i in range(20):
@@ -66,3 +66,18 @@ for a in range(2, 10):
     i += 1
     r = gcd(a, pow(a, i))
     assert r == a, f'gcd({a},{a}^{i}) == {a}, but returned {r}'
+
+# KMP_matcher (Knuth-Morris-Pratt algorithm)
+vectors = [
+        '', '', -1,
+        'a', 'a', 0,
+        'daabcbaabcbc', 'bcb', 3,
+        'axxxxyyyyb', 'xy', 4,
+        'eemckxmckx', 'emckx', 1
+        ]
+for i in range(0, len(vectors), 3):
+    haystack = vectors[i]
+    needle = vectors[i+1]
+    expected = vectors[i+2]
+    returned = KMP_matcher(haystack, needle)
+    assert returned == expected, f'for \'{haystack}\' and \'{needle}\' expected index is {expected}, but returned {returned}!'

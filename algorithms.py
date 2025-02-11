@@ -90,3 +90,47 @@ def popcount(n):
     n = (((n >> 4) + n) & 0x0f0f0f0f)
     n += (n >> 8) + (n >> 16)
     return n & 0x0000003f
+
+# Knuth-Morris-Pratt's prefix function, see https://vnspoj.github.io/wiki/string/prefix-function
+# Time complexity: O(2*n)
+# I took its implementation from https://www.youtube.com/watch?v=JoF0Z7nVSrA
+def prefix_function(needle):
+    n = len(needle)
+    LPS = [0] * n
+    prevLPS, i = 0, 1
+    while i < n:
+        if needle[i] == needle[prevLPS]:
+            LPS[i] = prevLPS + 1
+            prevLPS += 1
+            i += 1
+        else:
+            if prevLPS == 0:
+                LPS[i] = 0
+                i += 1
+            else:
+                prevLPS = LPS[prevLPS - 1]
+    return LPS
+
+# Knuth-Morris-Pratt algorithm for finding the index of
+# the first appearance of a needle in a haystack.
+def KMP_matcher(haystack, needle):
+    """
+    Returns the position at the first occurrence
+    of a needle in a haystack.
+    type: List
+    rtype: index or -1
+    """
+    i, j = 0, 0
+    LPS = prefix_function(needle)
+    while i < len(haystack):
+        if haystack[i] == needle[j]:
+            i += 1
+            j += 1
+        else:
+            if j == 0:
+                i += 1
+            else:
+                j = LPS[j - 1]
+        if j == len(needle):
+            return i - len(needle)
+    return -1

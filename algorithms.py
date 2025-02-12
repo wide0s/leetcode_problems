@@ -91,6 +91,21 @@ def popcount(n):
     n += (n >> 8) + (n >> 16)
     return n & 0x0000003f
 
+# Time complexity: O(log(d))
+def digsum(d, k):
+    """
+    Calculates the sum of the digits of a number d in base k.
+    :type int
+    :type int > 0
+    :rtype int
+    """
+    assert k > 0
+    a = 0
+    while d > 0:
+        a += d % k
+        d //= k
+    return a
+
 # Knuth-Morris-Pratt's prefix function, see https://vnspoj.github.io/wiki/string/prefix-function
 # Time complexity: O(2*n)
 # I took its implementation from https://www.youtube.com/watch?v=JoF0Z7nVSrA

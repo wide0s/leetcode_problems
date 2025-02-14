@@ -25,6 +25,11 @@ struct ListNode* doubleIt(struct ListNode* head) {
         return head;
 
     node = allocNode(0, head);
+    /* TODO: here we changing the head of the given list
+     * which is error prone as a caller may rely on exiting
+     * pointer. The gentle approach would be to swap head
+     * with next and values in (2) and return original head
+     * pointer. */
     if (node) {
         head = node;
         prev = head;
@@ -39,7 +44,7 @@ struct ListNode* doubleIt(struct ListNode* head) {
             prev = node;
             node = node->next;
         }
-        if (!head->val) {
+        if (!head->val) { /* (2) */
             node = head;
             head = head->next;
             free(node);

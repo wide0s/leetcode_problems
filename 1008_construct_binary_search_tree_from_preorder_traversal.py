@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from binarytree import TreeNode
+from binarytree import TreeNode, preorder_tree_walk
 
 class Solution(object):
     def bstFromPreorder(self, preorder):
@@ -41,24 +41,10 @@ vectors = [
         [1,3], [1,None,3]
         ]
 
-def inorder_tree_walk(root, a):
-    if root is None:
-        return
-    if len(a) == 0:
-        a.append(root.val)
-    if root.left is not None or root.right is not None:
-        v = root.left.val if root.left is not None else None
-        a.append(v)
-        v = root.right.val if root.right is not None else None
-        a.append(v)
-        inorder_tree_walk(root.left, a)
-        inorder_tree_walk(root.right, a)
-
 for i in range(0, len(vectors), 2):
     nums = vectors[i]
     print(nums)
     expected = vectors[i+1]
     returned = Solution().bstFromPreorder(nums)
-    a = []
-    inorder_tree_walk(returned, a)
+    a = preorder_tree_walk(returned)
     assert expected == a, f'for {nums} expected {expected}, but returned {a}!'

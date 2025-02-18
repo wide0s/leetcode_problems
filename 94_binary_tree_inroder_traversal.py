@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from binarytree import TreeNode
+from binarytree import buildtree, inorder_tree_print
 
 class Solution(object):
     def inorderTraversal(self, root):
@@ -20,35 +20,19 @@ class Solution(object):
             return keys
         return inorder_traversal(root)
 
-a = None
-expected = []
-returned = Solution().inorderTraversal(a)
-assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'
+vectors = [
+        None, [],
+        [1], [1],
+        [1,None,2,3], [1,3,2],
+        [1,2,3,4,5,None,8,None,None,6,7,9], [4,2,6,5,7,1,3,9,8]
+        ]
 
-a = [1]
-tree = TreeNode(1)
-expected = [1]
-returned = Solution().inorderTraversal(tree)
-assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'
-
-a = [1,None,2,3]
-tree = TreeNode(1)
-tree.right = TreeNode(2)
-tree.right.left = TreeNode(3)
-expected = [1,3,2]
-returned = Solution().inorderTraversal(tree)
-assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'
-
-a = [1,2,3,4,5,None,8,None,None,6,7,9]
-tree = TreeNode(1)
-tree.right = TreeNode(3)
-tree.right.right = TreeNode(8)
-tree.right.right.left = TreeNode(9)
-tree.left = TreeNode(2)
-tree.left.left = TreeNode(4)
-tree.left.right = TreeNode(5)
-tree.left.right.left = TreeNode(6)
-tree.left.right.right = TreeNode(7)
-expected = [4,2,6,5,7,1,3,9,8]
-returned = Solution().inorderTraversal(tree)
-assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'
+for i in range(0, len(vectors), 2):
+    a = vectors[i]
+    expected = vectors[i+1]
+    tree = buildtree(a)
+    print(a)
+    inorder_tree_print(tree)
+    print('')
+    returned = Solution().inorderTraversal(tree)
+    assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'

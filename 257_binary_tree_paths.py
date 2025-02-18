@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from binarytree import TreeNode, preorder_tree_walk, inorder_tree_print
+from binarytree import buildtree, inorder_tree_print
 
 # NOT MY SOLUTION, https://walkccc.me/LeetCode/problems/257/#__tabbed_1_3
 class Solution(object):
@@ -34,19 +34,17 @@ class Solution(object):
         tree_paths(root, [], paths)
         return paths
 
-a = [1]
-print(a)
-expected = ["1"]
-tree = TreeNode(1)
-returned = Solution().binaryTreePaths(tree)
-assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'
+vectors = [
+        [1], ['1'],
+        [1,2,3,None,5], ['1->2->5','1->3']
+        ]
 
-a = [1,2,3,None,5]
-print(a)
-expected = ["1->2->5","1->3"]
-tree = TreeNode(1)
-tree.left = TreeNode(2)
-tree.right = TreeNode(3)
-tree.left.right = TreeNode(5)
-returned = Solution().binaryTreePaths(tree)
-assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'
+for i in range(0, len(vectors), 2):
+    a = vectors[i]
+    expected = vectors[i+1]
+    tree = buildtree(a)
+    print(a)
+    inorder_tree_print(tree)
+    print('')
+    returned = Solution().binaryTreePaths(tree)
+    assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'

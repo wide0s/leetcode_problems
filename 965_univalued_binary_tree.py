@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from binarytree import TreeNode
+from binarytree import buildtree, inorder_tree_print
 
 class Solution(object):
     def isUnivalTree(self, root):
@@ -20,23 +20,17 @@ class Solution(object):
             return unival_tree(root.left, val) and unival_tree(root.right, val)
         return unival_tree(root, root.val)
 
-a = [1,1,1,1,1,None,1]
-expected = True
-tree = TreeNode(1)
-tree.left = TreeNode(1)
-tree.left.left = TreeNode(1)
-tree.left.right = TreeNode(1)
-tree.right = TreeNode(1)
-tree.right.right = TreeNode(1)
-returned = Solution().isUnivalTree(tree)
-assert returned == expected, f'for {a} expected {expected}, but returned {returned}!'
+vectors = [
+        [1,1,1,1,1,None,1], True,
+        [2,2,2,5,2], False
+        ]
 
-a = [2,2,2,5,2]
-expected = False
-tree = TreeNode(2)
-tree.right = TreeNode(2)
-tree.left = TreeNode(2)
-tree.left.left = TreeNode(5)
-tree.left.right = TreeNode(2)
-returned = Solution().isUnivalTree(tree)
-assert returned == expected, f'for {a} expected {expected}, but returned {returned}!'
+for i in range(0, len(vectors), 2):
+    a = vectors[i]
+    expected = vectors[i+1]
+    tree = buildtree(a)
+    print(a)
+    inorder_tree_print(tree)
+    print(' ')
+    returned = Solution().isUnivalTree(tree)
+    assert expected == returned, f'for {a} expected {expected}, but returned {returned}!'

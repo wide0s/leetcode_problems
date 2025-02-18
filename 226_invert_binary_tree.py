@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from binarytree import TreeNode, preorder_tree_walk
+from binarytree import buildtree, is_same_tree, inorder_tree_print
 
 class Solution(object):
     def invertTree(self, root):
@@ -21,28 +21,21 @@ class Solution(object):
         bstInvert(root)
         return root
 
-tree = None
-print(tree)
-assert Solution().invertTree(tree) is None, f'for None expected None!' 
+vectors = [
+        None, None,
+        [4,2,7,1,3,6,9], [4,7,2,9,6,3,1],
+        [2,1,3], [2,3,1]
+        ]
 
-a = [4,2,7,1,3,6,9]
-print(a)
-tree = TreeNode(4)
-tree.left = TreeNode(2)
-tree.left.left = TreeNode(1)
-tree.left.right = TreeNode(3)
-tree.right = TreeNode(7)
-tree.right.left = TreeNode(6)
-tree.right.right = TreeNode(9)
-expected = [4,7,2,9,6,3,1]
-returned = preorder_tree_walk(Solution().invertTree(tree))
-assert returned == expected, f'for {a} expected {expected}, but returned {returned}!'
-
-a = [2,1,3]
-print(a)
-tree = TreeNode(2)
-tree.left = TreeNode(1)
-tree.right = TreeNode(3)
-expected = [2,3,1]
-returned = preorder_tree_walk(Solution().invertTree(tree))
-assert returned == expected, f'for {a} expected {expected}, but returned {returned}!'
+for i in range(0, len(vectors), 2):
+    a = vectors[i]
+    b = vectors[i+1]
+    tree = buildtree(a)
+    expected = buildtree(b)
+    print(f'{a} {b}')
+    inorder_tree_print(tree)
+    print('- %< -')
+    inorder_tree_print(expected)
+    print('')
+    returned = Solution().invertTree(tree)
+    assert is_same_tree(returned, expected), f'for {a} expected {expected}, but returned {returned}!'

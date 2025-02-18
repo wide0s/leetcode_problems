@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from binarytree import TreeNode, preorder_tree_walk
+from binarytree import TreeNode, buildtree, leetcode_tree_repr, is_same_tree
 
 class Solution(object):
     def bstFromPreorder(self, preorder):
@@ -43,8 +43,9 @@ vectors = [
 
 for i in range(0, len(vectors), 2):
     nums = vectors[i]
+    b = vectors[i+1]
     print(nums)
-    expected = vectors[i+1]
+    expected = buildtree(b)
     returned = Solution().bstFromPreorder(nums)
-    a = preorder_tree_walk(returned)
-    assert expected == a, f'for {nums} expected {expected}, but returned {a}!'
+    a = leetcode_tree_repr(returned)
+    assert is_same_tree(expected, returned), f'for {nums} expected {b}, but returned {a}!'

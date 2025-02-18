@@ -122,6 +122,44 @@ def postorder_tree_print(tree, depth=0):
         postorder_tree_print(tree.right, depth + 1)
         print(' ' * depth + f'{tree.val}')
 
+def bstree_search(tree, key):
+    """
+    Searches for a node with a given key in a binary
+    search tree.
+
+    :type TreeNode
+    :type int
+    :rtype TreeNode
+    """
+    while tree is not None and key != tree.val:
+        if val < tree.key:
+            tree = tree.left
+        else:
+            tree = tree.right
+    return tree
+
+def bstree_minimum(tree):
+    """
+    Returns the node with the minimum value.
+
+    :type TreeNode
+    :rtype TypeNode
+    """
+    while tree.left is not None:
+        tree = tree.left
+    return tree
+
+def bstree_maximum(tree):
+    """
+    Returns the node with the maximum value.
+
+    :type TreeNode
+    :rtype TypeNode
+    """
+    while tree.right is not None:
+        tree = tree.right
+    return tree
+
 def is_same_tree(tree1, tree2):
     """
     Checks if two binary trees are the same.

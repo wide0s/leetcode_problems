@@ -1,4 +1,6 @@
 class Solution(object):
+    # Runtime complexity: O(n*log(n))
+    # Space complexity: O(2*n)
     def merge(self, intervals):
         """
         :type intervals: List[List[int]]

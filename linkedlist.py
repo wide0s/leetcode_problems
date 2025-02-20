@@ -19,7 +19,9 @@ class ListNodeIterator(object):
             raise StopIteration
 
 def listnodes(iterable):
-    assert iterable != None or len(iterable) > 0
+    if iterable is None:
+        return None
+    assert len(iterable) > 0 # TODO: think about this case
     head = ListNode(iterable[0])
     node = head
     for value in iterable[1:]:
@@ -29,6 +31,8 @@ def listnodes(iterable):
     return head
 
 def nodestolist(listnode):
+    if listnode is None:
+        return None
     _list = []
     for node in ListNodeIterator(listnode):
         _list.append(node.val)

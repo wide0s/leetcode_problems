@@ -60,7 +60,7 @@ node = head
 while node is not None:
     assert node.child is None, f'case #2.2: node {node.val} still has childs!'
     node = node.next
-# check the integrity of the reverse list (prev pointer logic)
+# check the integrity of the reversed list (prev pointer logic)
 expected = [9,8,7,6,52,51,5,4,35,34,333,3321,332,331,33,32,31,3,2,1]
 returned = []
 tail = head

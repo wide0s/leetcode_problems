@@ -18,6 +18,24 @@ class ListNodeIterator(object):
         else:
             raise StopIteration
 
+def reversenodes(head):
+    """
+    Reverses a linked list and returns its head.
+
+    :type ListNode
+    :rtype ListNode
+    """
+    if head is None or head.next is None:
+        return head
+    prev, node = head, head.next
+    head.next = None
+    while node.next is not None:
+        next_node = node.next
+        node.next = prev
+        prev, node = node, next_node
+    node.next = prev
+    return node
+
 def listnodes(iterable):
     if iterable is None:
         return None
@@ -46,7 +64,7 @@ def printnodes(head):
         node = node.next
     print('')
 
-# It's called Node in https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/
+# it's called Node in https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/
 class TriNode(object):
     def __init__(self, val, prev, next, child):
         self.val = val

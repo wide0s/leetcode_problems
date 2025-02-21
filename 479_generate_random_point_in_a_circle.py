@@ -28,6 +28,13 @@ class Solution(object):
 # obj = Solution(radius, x_center, y_center)
 # param_1 = obj.randPoint()
 
+upper = 16
+value = 0
 sol = Solution(1.0, 0, 0)
 for i in range(3*(10**4)):
-    print(sol.randPoint())
+    value = sol.randPoint()
+    if i < upper:
+        print(value)
+    elif i == upper:
+        print('..........')
+print(value)

@@ -72,7 +72,7 @@ def sortnodes(head, reverse=False):
 def listnodes(iterable):
     if iterable is None:
         return None
-    assert len(iterable) > 0 # TODO: think about this case
+    assert len(iterable) > 0, f'TODO: think about this case'
     head = ListNode(iterable[0])
     node = head
     for value in iterable[1:]:
@@ -90,12 +90,8 @@ def nodestolist(listnode):
     return _list
 
 def printnodes(head):
-    node = head
-    print('<', end='')
-    while node is not None:
-        print(node.val, end='>' if node.next == None else ', ')
-        node = node.next
-    print('')
+    s = ', '.join(str(node.val) for node in ListNodeIterator(head))
+    print('Nodes[' + s +']')
 
 # it's called Node in https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/
 class TriNode(object):

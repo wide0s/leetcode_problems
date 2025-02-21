@@ -18,6 +18,21 @@ class ListNodeIterator(object):
         else:
             raise StopIteration
 
+def nodeslen(head):
+    """
+    Returns the length of the linked list.
+
+    :type ListNode
+    :rtype int
+    """
+    if head is None:
+        return 0
+    sz = 0
+    while head is not None:
+        head = head.next
+        sz += 1
+    return sz
+
 def reversenodes(head):
     """
     Reverses a linked list and returns its head.

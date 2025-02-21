@@ -1,4 +1,4 @@
-from linkedlist import ListNode, listnodes, nodestolist, printnodes, reversenodes, sortnodes
+from linkedlist import ListNode, listnodes, nodestolist, printnodes, reversenodes, sortnodes, nodeslen
 
 
 # listnodes
@@ -20,21 +20,35 @@ for a in vectors:
             head = head.next
             i += 1
 
-# printnodes
-printnodes(listnodes(None))
-printnodes(listnodes([1]))
-printnodes(listnodes([1,2,3,4,5,6,7,8,9]))
+# nodeslen
+vectors = [
+        None, 0,
+        [1], 1,
+        [1,2,3,4,5,6], 6
+        ]
+for i in range(0, len(vectors), 2):
+    a = vectors[i]
+    expected = vectors[i + 1]
+    print(f'nodeslen | {a}')
+    head = listnodes(a)
+    nlen = nodeslen(head)
+    assert expected == nlen, f'nodeslen | for {a} expected {expected}, but returned {returned}!'
 
 # nodestolist
 vectors = [
         None,
         [1],
-        [1,2,3,4]
+        [1,2,3,4,5,6]
         ]
 for a in vectors:
     print(f'nodestolist | {a}')
     returned = nodestolist(listnodes([x for x in a]) if a is not None else None)
     assert a == returned, f'for {a} expected {a}, but returned {returned}!'
+
+# printnodes
+printnodes(listnodes(None))
+printnodes(listnodes([1]))
+printnodes(listnodes([1,2,3,4,5,6,7,8,9]))
 
 # reversnodes
 vectors = [

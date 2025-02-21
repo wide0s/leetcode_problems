@@ -36,6 +36,39 @@ def reversenodes(head):
     node.next = prev
     return node
 
+# Runtime complexity O(n^2)
+def sortnodes(head, reverse=False):
+    """
+    Sorts the list and returns its new head.
+
+    :type ListNode
+    :rtype ListNode
+    """
+    if head is None or head.next is None:
+        return head
+    # ascending order
+    compare = lambda e1, e2: e1.val > e2.val
+    if reverse:
+        # descending order
+        compare = lambda e1, e2: e1.val < e2.val
+    # insertion sort
+    head = ListNode(0, head)
+    prev = head.next
+    node = head.next.next
+    while node is not None:
+        if compare(node, prev):
+            prev = prev.next
+            node = node.next
+            continue
+        temp = head
+        while compare(node, temp.next):
+            temp = temp.next
+        prev.next = node.next
+        node.next = temp.next
+        temp.next = node
+        node = prev.next
+    return head.next
+
 def listnodes(iterable):
     if iterable is None:
         return None

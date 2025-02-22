@@ -24,6 +24,7 @@ for a in vectors:
 vectors = [
         None, 0,
         [1], 1,
+        [1,2,3], 3,
         [1,2,3,4,5,6], 6
         ]
 for i in range(0, len(vectors), 2):

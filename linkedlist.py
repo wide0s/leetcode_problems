@@ -27,11 +27,14 @@ def nodeslen(head):
     """
     if head is None:
         return 0
-    sz = 0
-    while head is not None:
-        head = head.next
-        sz += 1
-    return sz
+    i = 0
+    slow = head
+    fast = head.next
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+        i += 1
+    return 2 * i + (2 if fast is not None else 1)
 
 def reversenodes(head):
     """

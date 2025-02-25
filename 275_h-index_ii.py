@@ -4,18 +4,22 @@ class Solution(object):
         :type citations: List[int]
         :rtype: int
         """
-        c = sorted(citations)
-        H_index = 0
-        for i in range(len(c)):
-            x = len(c) - i
-            if c[i] >= x:
-                H_index = max(H_index, x)
-        return H_index
-       
+        n = len(citations)
+        lo, hi = 0, n
+        while lo < hi:
+            mid = (hi + lo) // 2
+            if citations[mid] < n - mid:
+                lo = mid + 1
+            else:
+                hi = mid
+        return n - lo
+
+
 vectors = [
         [100], 1,
-        [3,0,6,1,5], 3,
-        [1,3,1], 1,
+        [1,2,100], 2,
+        [0,1,3,5,6], 3,
+        [1,1,3], 1,
         [0,1,3,3,3,5,6], 3,
         [0,0,0,1,2], 1,
         [0,0,0,0,2], 1,

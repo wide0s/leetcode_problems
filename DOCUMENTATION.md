@@ -9,5 +9,5 @@
 5. Runtime efficient algorithm for rotating an array. Brian W. Kernighan and P. J. Plauger. "Software Tools in Pascal", p.194-195. Download book from [here](https://seriouscomputerist.atariverse.com/media/pdf/book/Software%20Tools%20in%20Pascal.pdf).
 6. Gradient Descent, see [ref (in Russian)](http://mech.math.msu.su/~vvb/MasterAI/GradientDescent.html).
 7. Negative base number system, see [ref](https://en.wikipedia.org/wiki/Negative_base).
-8. Gray code, see [ref](https://cp-algorithms.com/algebra/gray-code.html).
+8. Gray codes, see [ref](https://cp-algorithms.com/algebra/gray-code.html).
 9. Python Sorted Containers, see [ref](https://grantjenks.com/docs/sortedcontainers/introduction.html).

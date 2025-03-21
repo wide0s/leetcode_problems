@@ -251,7 +251,7 @@ assert mylist.head == None
 
 print('#5: leetcode example')
 mylist = MyLinkedList()
-print(f'MyLinkedLost(): {mylist}')
+print(f'MyLinkedList(): {mylist}')
 mylist.addAtIndex(0, 1)
 print(f'addAtIndex(0, 1): {mylist}')
 mylist.addAtTail(3)

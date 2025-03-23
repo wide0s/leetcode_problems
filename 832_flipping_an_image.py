@@ -27,7 +27,6 @@ vectors = [
         [[1,1,0,0], [1,0,0,1], [0,1,1,1],[ 1,0,1,0]], [[1,1,0,0], [0,1,1,0], [0,0,0,1], [1,0,1,0]]
 ]
 
-
 for i in range(0, len(vectors), 2):
     matrix = copy.deepcopy(vectors[i])
     expected = vectors[i + 1]

@@ -33,6 +33,8 @@ vectors = [
 ]
 
 for i in range(0, len(vectors), 2):
+    matrix = vectors[i]
     expected = vectors[i + 1]
-    result = Solution().isToeplitzMatrix(vectors[i])
-    assert result == expected, f"for {vectors[i]} expected {expected}, returned {result}!"
+    print(f'{matrix} {expected}')
+    result = Solution().isToeplitzMatrix(matrix)
+    assert result == expected, f"for {matrix} expected {expected}, returned {result}!"

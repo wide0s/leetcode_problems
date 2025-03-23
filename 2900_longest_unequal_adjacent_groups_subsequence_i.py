@@ -25,5 +25,6 @@ for i in range(0, len(vectors), 3):
     words = vectors[i]
     groups = vectors[i+1]
     expected = vectors[i+2]
+    print(f'words {words} groups {groups} expected {expected}')
     returned = Solution().getLongestSubsequence(words, groups)
     assert expected == returned, f'for words {words} and groups {groups} expected {expected}, but returned {returned}!'

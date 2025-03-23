@@ -39,8 +39,8 @@ vectors = [
 
 for i in range(0, len(vectors), 3):
     nums = vectors[i]
-    print(nums)
     target = vectors[i+1]
     expected = vectors[i+2]
+    print(f'{nums} {target} {expected}')
     returned = Solution().search(nums, target)
     assert expected == returned, f'for {nums} and target {target} expected {expected}, but returned {returned}!'

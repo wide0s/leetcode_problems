@@ -45,5 +45,6 @@ for i in range(0, len(vectors), 8):
     x2 = vectors[i+5]
     y2 = vectors[i+6]
     expected = vectors[i+7]
+    print(f'circle (({xCenter}, {yCenter}), {radius}) and rectangle (({x1},{y1}), ({x2},{y2})) -> {expected}')
     returned = Solution().checkOverlap(radius, xCenter, yCenter, x1, y1, x2, y2)
     assert expected == returned, f'for circle (({xCenter}, {yCenter}), {radius}) and rectangle (({x1},{y1}), ({x2},{y2})) expected {expected}, but returned {returned}!'

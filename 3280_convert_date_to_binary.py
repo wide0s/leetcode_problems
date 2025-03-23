@@ -17,5 +17,6 @@ vectors = [
 for i in range(0, len(vectors), 2):
     date = vectors[i]
     expected = vectors[i+1]
+    print(f'{date} {expected}')
     returned = Solution().convertDateToBinary(date)
     assert expected == returned, f'for {date} expected {expected}, but returned {returned}!'

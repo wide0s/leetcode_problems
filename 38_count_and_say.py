@@ -39,11 +39,20 @@ class Solution(object):
             value = self.rle(value)
         return value
 
-vectors = [ 1, '1', 2, '11', 3, '21', 4, '1211', 5, '111221', 6, '312211' ]
-for i in range(0, len(vectors), 2):
-    value = Solution().countAndSay(vectors[i])
-    assert value == vectors[i + 1], f'SLOW: {vectors[i]} is {vectors[i + 1]}, but returned {value}'
+vectors = [ 
+        1, '1',
+        2, '11',
+        3, '21',
+        4, '1211',
+        5, '111221',
+        6, '312211' 
+    ]
 
 for i in range(0, len(vectors), 2):
-    value = Solution().countAndSayFast(vectors[i])
-    assert value == vectors[i + 1], f'FAST: {vectors[i]} is {vectors[i + 1]}, but returned {value}'
+    n = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{n} {expected}')
+    value = Solution().countAndSay(n)
+    assert value == expected, f'SLOW: {n} is {expected}, but returned {value}'
+    value = Solution().countAndSayFast(n)
+    assert value == expected, f'FAST: {n} is {vectors[i + 1]}, but returned {value}'

@@ -23,5 +23,6 @@ vectors = [
 for i in range(0, len(vectors), 2):
     num = vectors[i]
     expected = vectors[i+1]
+    print(f'{num} {expected}')
     returned = Solution().addDigits(num)
     assert expected == returned, f'for {num} expected {expected}, but returned {returned}!'

@@ -53,6 +53,6 @@ vectors = [
 ]
 
 for i in range(0, len(vectors), 2):
-    #print(vectors[i])
+    print(vectors[i])
     Solution().setZeroes(vectors[i])
     assert vectors[i] == vectors[i + 1], f"for {i} should be {vectors[i + 1]}, returned {vectors[i]}"

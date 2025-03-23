@@ -28,5 +28,6 @@ vectors = [
 for i in range(0, len(vectors), 2):
     coins = vectors[i]
     expected = vectors[i + 1]
+    print(f'{coins} {expected}')
     returned = Solution().arrangeCoins(coins)
     assert expected == returned, f'for {coins} expected {expected}, returned {returned}'

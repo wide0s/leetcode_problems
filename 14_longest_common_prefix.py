@@ -45,5 +45,13 @@ class Solution(object):
             prefix += ch
         return prefix
 
+vectors = [
+    ['flower','flow','flight'], 'fl',
+]
 
-Solution().longestCommonPrefixFast(["flower","flow","flight", "fa"])
+for i in range(0, len(vectors), 2):
+    strs = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{strs} {expected}')
+    returned = Solution().longestCommonPrefixMy(strs)
+    assert expected == returned, f'for strs = {strs} expected {expected}, returned {returned}!'

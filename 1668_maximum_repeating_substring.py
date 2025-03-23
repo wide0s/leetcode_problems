@@ -50,5 +50,6 @@ for i in range(0, len(vectors), 3):
     sequence = vectors[i]
     word = vectors[i+1]
     expected = vectors[i+2]
+    print(f'sequence {sequence} word {word} expected {expected}')
     returned = Solution().maxRepeating(sequence, word)
     assert expected == returned, f'for sequence \'{sequence}\' and word \'{word}\' expected {expected}, but returned {returned}!' 

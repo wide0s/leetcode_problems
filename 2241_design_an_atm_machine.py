@@ -31,7 +31,6 @@ class ATM(object):
             return [-1]
         return transaction
 
-
 vectors = [
         'ATM', None, None,
         'deposit', [0,0,1,2,1], [0,0,1,2,1],

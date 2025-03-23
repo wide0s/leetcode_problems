@@ -10,7 +10,6 @@ class Solution(object):
             x = -x
 
         max_int = 2**31 - 1
-        print(2**31)
         o = 0
         while x > 0:
             r = x % 10
@@ -22,4 +21,14 @@ class Solution(object):
             assert o <= max_int
         return o if sign > 0 else -o
 
-assert Solution().reverse(-123) == -321
+vectors = [
+    123, 321,
+    -123, -321
+]
+
+for i in range(0, len(vectors), 2):
+    x = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{x} {expected}')
+    returned = Solution().reverse(x)
+    assert expected == returned, f'for x = {x} expected {expected}, returned {returned}!'

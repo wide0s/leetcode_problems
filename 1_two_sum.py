@@ -40,10 +40,19 @@ class Solution(object):
             else:
                 seen[nums[i]] = i
 
+vectors = [
+    [7, 2], 9, [0, 1],
+    [2, 7, 11, 15], 9, [0, 1],
+    [3, 2, 4], 6, [1, 2],
+    [3, 3], 6, [0, 1],
+    [2,5,5,11], 10, [1, 2],
+    [-10,-1,-18,-19], -19, [1, 2]
+]
 
-print(Solution().twoSum([7, 2], 9))
-print(Solution().twoSum([2, 7, 11, 15], 9))
-print(Solution().twoSum([3, 2, 4], 6))
-print(Solution().twoSum([3, 3], 6))
-print(Solution().twoSum([2,5,5,11], 10))
-print(Solution().twoSum([-10,-1,-18,-19], -19))
+for i in range(0, len(vectors), 3):
+    nums = vectors[i]
+    target = vectors[i + 1]
+    expected = vectors[i + 2]
+    print(f'{nums} {target} {expected}')
+    returned = Solution().twoSum(nums, target)
+    assert expected == returned, f'for nums = {nums} target = {target} expected {expected}, returned {returned}!'

@@ -47,5 +47,6 @@ for i in range(0, len(vectors), 3):
     s = vectors[i]
     t = vectors[i+1]
     expected = vectors[i+2]
+    print(f'{s} {t} {expected}')
     returned = Solution().isSubsequence(s, t)
     assert expected == returned, f'for s \'{s}\' and t \'{t}\' expected {expected}, returned {returned}!'

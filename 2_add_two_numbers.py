@@ -1,22 +1,4 @@
-# Definition for singly-linked list.
-class ListNode(object):
-     def __init__(self, val=0, next=None):
-         self.val = val
-         self.next = next
-
-def genll(_list):
-    root = ListNode(_list[0])
-    node = root
-    for e in _list[1:]:
-        node.next = ListNode(e)
-        node = node.next
-    return root
-
-def printll(ll):
-    while ll is not None:
-        print(ll.val, end='')
-        ll = ll.next
-    print('')
+from linkedlist import listnodes, nodestolist, ListNode
 
 class Solution(object):
     def convLLToInt(self, llist):
@@ -43,11 +25,17 @@ class Solution(object):
             v = v // 10
             node.next = ListNode(r)
             node = node.next 
-        #print(v1)
-        #print(v2)
-        #print(v1 + v2)
         return root.next
 
+vectors = [
+    [0], [0], [0],
+    [2, 4, 3], [5, 6, 4], [7, 0, 8]
+]
 
-printll(Solution().addTwoNumbers(genll([0]), genll([0])))
-printll(Solution().addTwoNumbers(genll([2, 4, 3]), genll([5, 6, 4])))
+for i in range(0, len(vectors), 3):
+    l1 = vectors[i]
+    l2 = vectors[i + 1]
+    expected = vectors[i + 2]
+    print(f'{l1} {l2} {expected}')
+    returned = Solution().addTwoNumbers(listnodes(l1), listnodes(l2))
+    assert expected == nodestolist(returned), f'for l1 = {l1} l2 = {l2} expected {expected}, returned {nodestolist(returned)}!'

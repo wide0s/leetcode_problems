@@ -11,17 +11,13 @@
 #  -106 <= nums1[i], nums2[i] <= 106
 
 class Solution(object):
-    def medianOf(self, arr, start=0, end=None):
-        if end == None:
-            end = len(arr) - 1
-        llen = end - start + 1
-        assert llen > 0
-        idx = start + (llen - 1) // 2
-        if llen % 2 == 0:
-            return idx, (arr[idx] + arr[idx + 1]) / 2.
-        else:
-            return idx, arr[idx]
-        
+    def medianOf(self, arr):
+        if len(arr) == 0:
+            return 0
+        idx = (len(arr) - 1) // 2
+        if len(arr) % 2 == 0:
+            return (arr[idx] + arr[idx + 1]) / 2.
+        return arr[idx]
 
     def findMedianSortedArrays(self, nums1, nums2):
         """
@@ -36,4 +32,14 @@ class Solution(object):
         return self.medianOf(sorted(nums1 + nums2))
 # COULDN'T SOLVE FOR O(log(n + m)) !
 
-Solution().findMedianSortedArrays([2,2,4,4], [2,2,2,4,4])
+vectors = [
+    [2, 2, 4, 4], [2, 2, 2, 4, 4], 2.0,
+]
+
+for i in range(0, len(vectors), 3):
+    nums1 = vectors[i]
+    nums2 = vectors[i + 1]
+    expected = vectors[i + 2]
+    print(f'{nums1} {nums2} {expected}')
+    returned = Solution().findMedianSortedArrays(nums1, nums2)
+    assert expected == returned, f'for nums1 = {nums1} nums2 = {nums2} expected {expected}, returned {returned}!'

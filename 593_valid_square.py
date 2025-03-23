@@ -41,5 +41,6 @@ for i in range(0, len(vectors), 5):
     p3 = vectors[i + 2]
     p4 = vectors[i + 3]
     expected = vectors[i + 4]
+    print(f'{p1} {p2} {p3} {p4} {expected}')
     returned = Solution().validSquare(p1, p2, p3, p4)
     assert expected == returned, f'for {p1}, {p2}, {p3} and {p4} expected {expected}, but returned {returned}!'

@@ -69,5 +69,6 @@ vectors = [
 for i in range(0, len(vectors), 2):
     piles = vectors[i]
     expected = vectors[i+1]
+    print(f'{piles} expected {expected}')
     returned = Solution().stoneGame(piles)
     assert expected == returned, f'for {piles} expected {expected}, bur returned {returned}!'

@@ -34,5 +34,6 @@ for i in range(0, len(vectors), 9):
     bx2 = vectors[i + 6]
     by2 = vectors[i + 7]
     expected = vectors[i + 8]
+    print(f'({ax1}, {ay1}), ({ax2}, {ay2}), ({bx1}, {by1}), ({bx2}, {by2}) -> {expected}')
     returned = Solution().computeArea(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2)
     assert expected == returned, f'for <({ax1},{ay1}), ({ax2}, {ay2})> and <({bx1},{by1}), ({bx2}, {by2})> expected {expected}, but returned {returned}!'

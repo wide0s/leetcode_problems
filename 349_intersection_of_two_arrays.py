@@ -16,5 +16,6 @@ for i in range(0, len(vectors), 3):
     nums1 = vectors[i]
     nums2 = vectors[i+1]
     expected = vectors[i+2]
+    print(f'{nums1} {nums2} {expected}')
     returned = Solution().intersection(nums1, nums2)
     assert expected == returned, f'for {nums1} and {nums2} expected {expected}, but returned {returned}!'

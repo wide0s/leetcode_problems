@@ -13,6 +13,18 @@ class Solution(object):
             i -= 1
         return roman
 
-assert Solution().intToRoman(3749) == 'MMMDCCXLIX'
-assert Solution().intToRoman(58) == 'LVIII'
-assert Solution().intToRoman(1994) == 'MCMXCIV'
+vector = [
+    3, 'III',
+    4, 'IV',
+    9, 'IX',
+    58, 'LVIII',
+    1994, 'MCMXCIV',
+    3749, 'MMMDCCXLIX'
+]
+
+for i in range(0, len(vector), 2):
+    number = vector[i]
+    expected = vector[i + 1]
+    print(f'{number} {expected}')
+    returned = Solution().intToRoman(number)
+    assert expected == returned, f'for number = {number} expected {expected}, returned {returned}!'

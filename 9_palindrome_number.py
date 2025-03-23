@@ -26,8 +26,17 @@ class Solution(object):
             r -= 1
         return True
 
-print(Solution().isPalindrome(-12321))
-print(Solution().isPalindrome(1))
-print(Solution().isPalindrome(12321))
-print(Solution().isPalindrome(12345654321))
-print(Solution().isPalindrome(1441))
+vectors = [
+    -12321, False,
+    1, True,
+    12321, True,
+    12345654321, True,
+    1441, True
+]
+
+for i in range(0, len(vectors), 2):
+    x = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{x} {expected}')
+    returned = Solution().isPalindrome(x)
+    assert expected == returned, f'for x = {x} expected {expected}, returned {returned}!'

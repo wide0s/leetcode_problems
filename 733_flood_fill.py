@@ -53,5 +53,6 @@ for i in range(0, len(vectors), 5):
     sc = vectors[i + 2]
     color = vectors[i + 3]
     expected = vectors[i + 4]
+    print(f'{image} {sr} {sc} {color} -> {expected}')
     filled = Solution().floodFill(image, sr, sc, color)
     assert image == filled, f'for {image} expecting {expected}, but got {filled}'

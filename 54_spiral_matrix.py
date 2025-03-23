@@ -60,5 +60,8 @@ vectors = [
 ]
             
 for i in range(0, len(vectors), 2):
-    result = Solution().spiralOrder(vectors[i]) 
-    assert result == vectors[i + 1], f'For {vectors[i]} should be {vectors[i + 1]}, returned {result}'
+    matrix = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{matrix} {expected}')
+    result = Solution().spiralOrder(matrix) 
+    assert result == expected, f'for {matrix} should be {expected}, returned {result}'

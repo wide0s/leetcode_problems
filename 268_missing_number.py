@@ -11,4 +11,13 @@ class Solution(object):
             m = n
         return len(nums)
 
-assert Solution().missingNumber([9,6,4,2,3,5,7,0,1]) == 8
+vectors = [
+        [9,6,4,2,3,5,7,0,1], 8
+        ]
+
+for i in range(0, len(vectors), 2):
+    nums = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{nums} {expected}')
+    returned = Solution().missingNumber(nums)
+    assert expected == returned, f'for {nums} expected {expected}, returned {returned}!'

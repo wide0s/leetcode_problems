@@ -21,8 +21,23 @@ class Solution(object):
             digits = [1] + digits
         return digits
 
-for i in range(9):
-    assert Solution().plusOne([i]) == [i + 1]
-assert Solution().plusOne([9]) == [1, 0]
-assert Solution().plusOne([1, 9]) == [2, 0]
-assert Solution().plusOne([9, 9]) == [1, 0, 0]
+vectors = [
+        [0], [1],
+        [1], [2],
+        [3], [4],
+        [4], [5],
+        [5], [6],
+        [6], [7],
+        [7], [8],
+        [8], [9],
+        [9], [1,0],
+        [1,9], [2,0],
+        [9,9], [1,0,0]
+        ]
+
+for i in range(0, len(vectors), 2):
+    digits = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{digits} {expected}')
+    returned = Solution().plusOne(digits)
+    assert expected == returned, f'for {digits} expected {expected}, returned {returned}!'

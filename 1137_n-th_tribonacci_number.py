@@ -29,5 +29,6 @@ vectors = [
 for i in range(0, len(vectors), 2):
     n = vectors[i]
     expected = vectors[i + 1]
+    print(f'{n} {expected}')
     returned = Solution().tribonacci(n)
     assert expected == returned, f'for {n} expected {expected}, returned {returned}'

@@ -18,6 +18,16 @@ class Solution(object):
         """
         return self.find(haystack, needle)
 
-assert Solution().strStr("hello", "ll") == 2
-assert Solution().strStr("sadbutsad", "sad") == 0
-assert Solution().strStr("leetcode", "leeto") == -1
+vectors = [
+    'hello', 'll', 2,
+    'sadbutsad', 'sad', 0,
+    'leetcode', 'leeto', -1,
+]
+
+for i in range(0, len(vectors), 3):
+    haystack = vectors[i]
+    needle = vectors[i + 1]
+    expected = vectors[i + 2]
+    print(f'{haystack} {needle} {expected}')
+    returned = Solution().strStr(haystack, needle)
+    assert expected == returned, f'for haystack = {haystack} needle = {needle} expected {expected}, returned {returned}!'

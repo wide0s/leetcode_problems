@@ -48,5 +48,6 @@ vectors = [
 for i in range(0, len(vectors), 3):
     x, y = vectors[i], vectors[i+1]
     expected = vectors[i+2]
+    print(f'x={x} y={y} expected={expected}')
     returned = Solution().winningPlayer(x, y)
     assert expected == returned, f'for x={x} and y={y} expected {expected}, but returned {returned}!'

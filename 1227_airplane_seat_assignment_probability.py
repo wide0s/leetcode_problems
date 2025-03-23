@@ -36,5 +36,6 @@ vectors = [
 for i in range(0, len(vectors), 2):
     seats = vectors[i]
     expected = vectors[i+1]
+    print(f'{seats} {expected}')
     returned = Solution().nthPersonGetsNthSeat(seats)
     assert expected == returned, f'for {seats} seats expected probability is {expected}, but returned {returned}!'

@@ -16,9 +16,18 @@ class Solution(object):
                     break
         return longest
 
-assert Solution().longestPalindrome('a') == 'a'
-assert Solution().longestPalindrome('bb') == 'bb'
-assert Solution().longestPalindrome("abacab") == "bacab"
-assert Solution().longestPalindrome("cbbd") == "bb"
-assert Solution().longestPalindrome("wowbababcbabaxy") == "ababcbaba"
-assert Solution().longestPalindrome("cccccccccccccccccccc") == "cccccccccccccccccccc"
+vectors = [
+        'a', 'a',
+        'bb', 'bb',
+        'abacab', 'bacab',
+        'cbbd', 'bb',
+        'wowbababcbabaxy', 'ababcbaba',
+        'cccccccccccccccccccc', 'cccccccccccccccccccc'
+        ]
+
+for i in range(0, len(vectors), 2):
+    s = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{s} {expected}')
+    returned = Solution().longestPalindrome(s)
+    assert expected == returned, f'for {s} expected {expected}, returned {returned}!'

@@ -43,7 +43,7 @@ def isBadVersion(version):
 
 for i in range(0, len(vectors), 2):
     n = vectors[i]
-    print(n)
     first_bad_version = vectors[i+1]
+    print(f'{n} {first_bad_version}')
     returned = Solution().firstBadVersion(n)
     assert first_bad_version == returned, f'for {n} expected {first_bad_version}, but returned {returned}!'

@@ -47,5 +47,8 @@ vectors = [
         ]
 
 for i in range(0, len(vectors), 2):
-    result = Solution().countPrimes(vectors[i])
-    assert result == vectors[i + 1], f'there are {vectors[i+1]} primes less than {vectors[i]}, but returned {result}!'
+    n = vectors[i]
+    expected = vectors[i + 1]
+    print(f'{n} {expected}')
+    result = Solution().countPrimes(n)
+    assert result == expected, f'there are {expected} primes less than {n}, but returned {result}!'

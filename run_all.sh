@@ -5,6 +5,7 @@ OC='\033[0;33m'
 GC='\033[0;32m'
 NC='\033[0m'
 
+SECONDS=0
 drafts=0
 count=0
 for file in $(find . -name "[0-9]*_*.py");
@@ -17,4 +18,4 @@ do
 	python3 $file
 	count=$(expr $count + 1)
 done
-echo -e "${OC}SOLUTIONS: ${count}${NC} ${CC}DRAFTS: ${drafts}${NC}"
+echo -e "${OC}SOLUTIONS: ${count}${NC} ${CC}DRAFTS: ${drafts}${NC} TIME ELAPSED: ${SECONDS}s"

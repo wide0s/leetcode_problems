@@ -11,3 +11,4 @@
 7. Negative base number system, see [ref](https://en.wikipedia.org/wiki/Negative_base).
 8. Gray code, see [ref](https://cp-algorithms.com/algebra/gray-code.html).
 9. Python Sorted Containers, see [ref](https://grantjenks.com/docs/sortedcontainers/introduction.html).
+10. Digit Dynamic Programming, see [codeforces](https://codeforces.com/blog/entry/53960), [USACO](https://usaco.guide/gold/digit-dp?lang=py).

@@ -10,6 +10,9 @@ SECONDS=0
 drafts=0
 count=0
 others=0
+
+make -C C run_and_clean
+
 for file in $(find . -name "[0-9]*_*.py");
 do
 	if grep -q '#DRAFT' ${file}; then
@@ -24,4 +27,4 @@ do
 		count=$(expr $count + 1)
 	fi
 done
-echo -e "${OC}LEETCODE SOLUTIONS: ${count}${NC} ${CC}DRAFTS: ${drafts}${NC} ${BC}OTHER SOLUTIONS: ${others}${NC} TIME ELAPSED: ${SECONDS}s"
+echo -e "${OC}LEETCODE SOLUTIONS IN PYTHON: ${count}${NC} ${CC}DRAFTS: ${drafts}${NC} ${BC}OTHER SOLUTIONS: ${others}${NC} TIME ELAPSED: ${SECONDS}s"
